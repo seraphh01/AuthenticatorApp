@@ -11,7 +11,7 @@ namespace AuthenticatorApp.Services
     public class OneTimePasswordService : IOneTimePasswordService
     {
         private static readonly TimeSpan PasswordValidityPeriod = TimeSpan.FromSeconds(30);
-        private readonly ConcurrentDictionary<string, (string Password, DateTime ExpiryTime)> _otpDictionary = new ConcurrentDictionary<string, (string, DateTime)>();
+        private readonly ConcurrentDictionary<string, (string Password, DateTime ExpiryTime)> _otpDictionary = new();
 
         public string GenerateOneTimePassword(string userId, DateTime dateTime)
         {
